@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  user-select: none;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #265951 0%, #05a1b3 100%);
+}
+.container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  max-width: 1400px;
+}
+
+section {
+  background: #fff;
+  border-radius: 10px;
+}
+.tools-board {
+  width: 210px;
+  padding: 15px 22px 0;
+}
+.tools-board .row {
+  margin-bottom: 20px;
+}
+.tools-board .options {
+  list-style: none;
+  margin: 10px 0 0 5px;
+}
+.-colorrow .options .option {
+  cursor: pointer;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.option:is(:hover, .active) img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg)
+    brightness(100%) contrast(100%);
+}
+.options .option :where(span, label) {
+  color: #777;
+  padding: 10px;
+}
+.option:is(:hover, .active) :where(span, label) {
+  color: #05a1b3;
+}
+.option #fill-color {
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+}
+.option #fill-color:checked ~ label {
+  color: #05a1b3;
+}
+.option #size-slider {
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.colors .options {
+  display: flex;
+  justify-content: space-between;
+}
+.colors .option {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  margin-top: 5px;
+  position: relative;
+}
+.colors .option:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+.colors .option:nth-child(2) {
+  background-color: #000;
+}
+.colors .option:nth-child(3) {
+  background-color: #f00;
+}
+.colors .option:nth-child(4) {
+  background-color: #0f0;
+}
+.colors .option:nth-child(5) {
+  background-color: #00f;
+}
+.colors .option:nth-child(6) {
+  background-color: #05a1b3;
+}
+.colors .option.selected::before {
+  position: absolute;
+  content: '';
+  height: 13px;
+  width: 13px;
+  top: 50%;
+  border-radius: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: inherit;
+  border: 2px solid #fff;
+}
+.colors .option:first-child.selected::before {
+  border-color: #ccc;
+}
+.option #color-picker {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+
+  cursor: pointer;
+}
+.buttons button {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.buttons button.clear-canvas {
+  border: 1px solid #05a1b3;
+  background: transparent;
+  color: #05a1b3;
+}
+.buttons button.save-img {
+  background: #05a1b3;
+  border: 1px solid #05a1b3;
+}
+
+.drawing-board {
+  flex: 1;
+}
+.drawing-board canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
